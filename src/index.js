@@ -41,7 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
   .then(data => data.map(function(item){
       display(item)
   } ))
+  
+  
+  
   //Use a form to create a new card and use POST to persist
+  
+  let form = document.querySelector("form")
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let name = document.querySelector(".input#text")
+        console.log(name)
+    })
+  
   //click like button and count on the DOM.
 
 });

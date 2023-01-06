@@ -31,7 +31,10 @@ body {
   margin: 1rem 2rem;
   box-shadow: 3px 4px #e04b52
 }
-
+img{
+  width: 15rem;
+  height: 15rem;
+}
 .toy-avatar {
   justify-self: center;
   height: 12rem;

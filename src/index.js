@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       let name = e.target.children[1].value
       let image = e.target.children[3].value
+      // let likes = 
       let toyObj ={
         name: name,
         image: image
@@ -66,8 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
+    function poster(tonyObj){
+      fetch("http://localhost:3000/toys", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(tonyObj)
+      })
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+      .catch(errors => console.log(errors.message))
+    }
 
-    
 
 
   

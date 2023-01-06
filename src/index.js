@@ -15,8 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   //GET all toys and render as cards on the DOM
-
+  count = 0;
   function display(item){
+    
     let location = document.querySelector("#toy-collection")
     let toy = document.createElement("div")
     toy.className = "card"
@@ -27,24 +28,58 @@ document.addEventListener("DOMContentLoaded", () => {
       // toy.innerHTML = `<img src= "${item.image}" >`
         
       // }
-    //   console.log(data)
-    console.log(item)
+      // console.log(data)
+    // console.log(item)
      
-      toy.innerHTML = `
+      toy.innerHTML =   `
       <img src= "${item.image}" >
+      <p class="para">${item.likes} likes</p>
       <button>Like</button>
       `
+  
+   console.log(toy)
+    let btn = toy.querySelector("button")
+    let par =  document.querySelector(".para")
+ 
+     btn.addEventListener("click", function(){
+      
+      let like = item.id.likes
+      console.log(item)
+       counter = count++
+       like = like + counter    
+      
+       par.innerHTML = `${like} likes`
+      
      
-   
+      
+      // //  item.map(anim => {
+      //  
+      //  console.log( Number.isInteger(like)counter = count++
+      //      like = like + counter)
+       
+      //   
+      //      console.log(like)
+           
+          
+      
+      //  par.innerText = 
+      //  `${like} likes`
+      // //  console.log(par)
+     
+      // //  })
+
+     })
+
   }
   
   
   fetch("http://localhost:3000/toys")
   .then(response => response.json())
-  .then(data => data.map(function(item){
+  .then(data => 
     
-      display(item)
-  } ))
+    data.map(item => display(item))
+      
+   )
   
   
   
@@ -84,7 +119,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   
-  //click like button and count on the DOM.
+  //click like button and count on the DOM.(PATCH)
+    // count = 0;
+  // let btn = document.querySelector("button")
+  // console.log(btn)
+  // .addEventListener("click", 
+  // function(){
+  //   count++
+  //   console.log(count)
+  // })
 
 });
 

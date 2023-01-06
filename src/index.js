@@ -28,9 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
       // }
     //   console.log(data)
-    
+    console.log(item)
      
-      toy.innerHTML = `<img src= "${item.image}" >`
+      toy.innerHTML = `
+      <img src= "${item.image}" >
+      <button>Like</button>
+      `
      
    
   }
@@ -39,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("http://localhost:3000/toys")
   .then(response => response.json())
   .then(data => data.map(function(item){
+    
       display(item)
   } ))
   
@@ -50,10 +54,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", function(e){
       e.preventDefault();
-
-      let name = document.querySelector(".input#text")
-        console.log(name)
+      let name = e.target.children[1].value
+      let image = e.target.children[3].value
+      let toyObj ={
+        name: name,
+        image: image
+      }
+      display(toyObj)
+      poster(toyObj)
+      form.reset()
     })
+
+
+
+    
+
+
   
   //click like button and count on the DOM.
 
